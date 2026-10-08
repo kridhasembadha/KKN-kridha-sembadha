@@ -1,0 +1,67 @@
+/* ==========================================================================
+   BERITA & DOKUMENTASI (GALERI KEGIATAN)
+   ========================================================================== */
+
+/* Desain Kartu Berita */
+.news-card {
+    border: 1px solid #f3f4f6;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+    border-color: var(--blog-green);
+}
+
+/* Pembungkus Gambar Dokumentasi */
+.news-img-wrapper {
+    height: 220px; /* Tinggi gambar dibuat seragam */
+    background-color: #e5e7eb;
+}
+
+.news-img-wrapper img {
+    height: 100%;
+    width: 100%;
+    transition: transform 0.6s ease;
+}
+
+/* Efek Zoom in gambar saat card disorot mouse */
+.news-card:hover .news-img-wrapper img {
+    transform: scale(1.08);
+}
+
+/* Membatasi teks berita agar tidak terlalu panjang (Maksimal 3 baris) */
+.line-clamp-3 {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: normal !important;
+    
+    /* -- JURUS ANTI GAGAL (MENGUNCI TINGGI PARAGRAF) -- */
+    line-height: 1.5 !important;      /* Jarak antar baris */
+    max-height: 4.5em !important;     /* 1.5 dikali 3 baris = 4.5em */
+    margin-bottom: 1.5rem !important; /* Menjaga jarak dengan tombol di bawahnya */
+}
+
+/* Tombol Baca Selengkapnya */
+.btn-read-more {
+    color: var(--blog-green);
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.btn-read-more:hover {
+    color: #074628;
+    letter-spacing: 0.5px;
+}
+
+.btn-read-more i {
+    transition: transform 0.2s ease;
+}
+
+.btn-read-more:hover i {
+    transform: translateX(4px); /* Tanda panah bergeser sedikit ke kanan */
+}

@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Modern Editorial Blog Style - Centered Layout & Custom Background
+   ========================================================================== */
+
+:root {
+    /* Background menyesuaikan foto tim yang dikirim */
+    --global-bg-image: url('team-kades.jpg');
+    
+    --blog-green: #0a5c36;      
+    --blog-dark: #111827;       
+    --blog-light-bg: #f9fafb;   
+    --text-muted: #6b7280;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Offset agar navbar tidak menutupi judul saat di-klik */
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--global-bg-image) no-repeat center center fixed;
+    background-size: cover;
+    color: var(--blog-dark);
+    padding: 40px 0; 
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- (Tinggalkan kode bawaan awal di sini, lalu tambahkan kode animasi di bawah) --- */
+
+/* STICKY NAVBAR INTERACTION */
+.transition-all {
+    transition: all 0.3s ease-in-out;
+}
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 15px 0 !important;
+}
+
+/* HERO SECTION - Ganti background URL dengan foto asli */
+.hero-blog-section {
+    position: relative;
+    background: url('team-DPL.jpg') no-repeat center center/cover;
+    padding: 140px 40px;
+    color: #ffffff;
+}
+
+/* KELAS ANIMASI SCROLL (FADE UP) */
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animate-fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* INTERAKSI KURSOR PADA GALERI */
+.blog-gallery-card {
+    cursor: pointer;
+    position: relative;
+}
+.blog-gallery-card::after {
+    content: '\f002'; /* Ikon zoom font-awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: white;
+    font-size: 2rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+.blog-gallery-card:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+.blog-gallery-card:hover img {
+    filter: brightness(0.7);
+}
+
+/* FOTO ANGGOTA CROP AGAR BULAT SEMPURNA */
+.author-img {
+    width: 85px;
+    height: 85px;
+    object-fit: cover; /* Mencegah foto kordes.jpg menjadi lonjong */
+    border: 3px solid #f3f4f6;
+}
